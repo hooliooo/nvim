@@ -3,9 +3,13 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+vim.keymap.del("n", "<leader>fg")
 
-local telescope_builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", telescope_builtin.find_files, { desc = "Find files via Telescope" })
-vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope Live Grep" })
-vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Find in buffers via Telescope" })
-vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Find help tags via Telescope" })
+-- stylua: ignore
+vim.keymap.set("n", "<C-p>", function() require("telescope.builtin").find_files() end, { desc = "Find files via Telescope" })
+-- stylua: ignore
+vim.keymap.set("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, { desc = "Telescope Live Grep" })
+-- stylua: ignore
+vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "Find in buffers via Telescope" })
+-- stylua: ignore
+vim.keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Find help tags via Telescope" })
